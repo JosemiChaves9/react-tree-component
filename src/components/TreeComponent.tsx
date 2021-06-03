@@ -5,12 +5,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-
-export interface DataItem {
-  name: string;
-  rightContent?: JSX.Element | string;
-  children?: DataItem[];
-}
+import { DataItem } from './types';
 
 export const TreeComponent = (props: { data: DataItem[] }) => {
   const [activeMenus, setActiveMenus] = useState<string[]>([]);

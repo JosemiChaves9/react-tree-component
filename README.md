@@ -7,9 +7,7 @@ This tree component it can be infinite, it's also collapsible. It will show an a
 
 # INSTALLATION
 
-`npm i josemichaves@react-tree-component`
-
----
+`npm i @josemichaves/react-tree-component`
 
 # USAGE
 
