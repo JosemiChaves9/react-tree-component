@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export interface DataItem {
   name: string;
-  rightContent?: any;
+  rightContent?: JSX.Element | string;
   children?: DataItem[];
 }
 

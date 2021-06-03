@@ -158,7 +158,7 @@ export const data = [
       { name: 'GT' },
       {
         name: 'Sabre',
-        rightContent: <div>The price of this car will be: $4 980 000</div>,
+        rightContent: 'The price of this car will be: $4 980 000',
       },
       { name: 'Senna' },
       { name: 'Speedtail' },
