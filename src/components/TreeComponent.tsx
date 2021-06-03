@@ -1,28 +1,45 @@
+import './TreeComponent.css';
 import {
   faChevronDown,
   faChevronRight,
-  faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import data from '../mockData.json';
-import './TreeComponent.css';
 
 export interface DataItem {
   name: string;
-  alert?: string;
+  rightText?: string;
   children?: DataItem[];
+  rightContent?: any;
 }
 
 export const TreeComponent = (props: { data: DataItem[] }) => {
-  const [activeMenus, setactiveMenus] = useState<DataItem[]>([]);
+  const [activeMenus, setActiveMenus] = useState<string[]>([]);
   const [toggleData, setToggleData] = useState<boolean>(false);
+
+  const onClickOnArrow = (itemName: string) => {
+    if (activeMenus) {
+      if (activeMenus.includes(itemName)) {
+        const index = activeMenus.indexOf(itemName);
+        activeMenus.splice(index, 1);
+      } else {
+        setActiveMenus([...activeMenus, itemName]);
+      }
+    }
+  };
 
   const renderChildren = (data: DataItem[]) => {
     return data.map((item: DataItem) => {
       return (
-        <li className='item'>
-          {item.children && toggleData && (
+        <li
+          unselectable={'off'}
+          key={item.name}
+          className='item'
+          onClick={(e) => {
+            onClickOnArrow(item.name);
+            e.stopPropagation();
+          }}>
+          {item.children && activeMenus.includes(item.name) && (
             <FontAwesomeIcon
               icon={faChevronDown}
               className='downArrow'
@@ -32,7 +49,7 @@ export const TreeComponent = (props: { data: DataItem[] }) => {
             />
           )}
 
-          {item.children && !toggleData && (
+          {item.children && !activeMenus.includes(item.name) && (
             <FontAwesomeIcon
               icon={faChevronRight}
               className='downArrow'
@@ -42,14 +59,13 @@ export const TreeComponent = (props: { data: DataItem[] }) => {
             />
           )}
           {item.name}
-          {item.alert && (
-            <div className='tooltip'>
-              <FontAwesomeIcon icon={faExclamationTriangle} />
-              <span className='tooltiptext'>{item.alert}</span>
-            </div>
+          {item.rightContent && (
+            <span className='rightContent'>{item.rightContent}</span>
           )}
 
-          {toggleData && item.children && renderChildren(item.children)}
+          {activeMenus.includes(item.name) &&
+            item.children &&
+            renderChildren(item.children)}
         </li>
       );
     });

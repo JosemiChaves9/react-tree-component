@@ -2,6 +2,7 @@
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 .item {
@@ -26,26 +27,11 @@ ul {
   font-weight: bold;
 }
 
-.tooltip {
+.rightContent,
+img {
+  color: gray;
+  position: absolute;
   margin-left: 5px;
-  color: red;
-  position: relative;
-  display: inline-block;
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
   width: auto;
-  background-color: gray;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  border-radius: 6px;
-  margin-left: 10px;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
+  height: 2rem;
 }

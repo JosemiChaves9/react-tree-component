@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { TreeComponent } from '../components/TreeComponent';
-import data from '../mockData.json';
+import { data } from '../mockData';
 
 export default {
   title: 'TreeComponent/TreeComponent',
