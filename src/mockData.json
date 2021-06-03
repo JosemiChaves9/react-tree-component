@@ -38,6 +38,7 @@
       { "name": "Portofino M" },
       {
         "name": "Icona",
+        "alert": "Not for comercial public",
         "children": [
           {
             "name": "Versions",
@@ -66,21 +67,34 @@
       },
       {
         "name": "Huracan",
-        "children": [
-          { "name": "Huracan Evo" },
-          { "name": "Huracan Evo Spyder" },
-          { "name": "Huracan Performante" },
-          { "name": "Huracan Performante Spyder" },
-          { "name": "Huracan STO" }
+        "versions": [
+          {
+            "children": [
+              { "name": "Huracan Evo" },
+              { "name": "Huracan Evo Spyder" },
+              { "name": "Huracan Performante" },
+              { "name": "Huracan Performante Spyder" },
+              { "name": "Huracan STO" }
+            ]
+          }
         ]
       },
       {
         "name": "Urus",
-        "children": [{ "name": "Urus" }, { "name": "Urus Evo" }]
+        "versions": [
+          {
+            "children": [{ "name": "Urus" }, { "name": "Urus Evo" }]
+          }
+        ]
       },
       {
         "name": "Sian",
-        "children": [{ "name": "Sian" }, { "name": "Sian Roadster" }]
+        "alert": "To Be Confirmed",
+        "versions": [
+          {
+            "children": [{ "name": "Sian" }, { "name": "Sian Roadster" }]
+          }
+        ]
       }
     ]
   },
@@ -123,7 +137,7 @@
       { "name": "Artura" },
       { "name": "Elva" },
       { "name": "GT" },
-      { "name": "Sabre" },
+      { "name": "Sabre", "alert": "To 2023" },
       { "name": "Senna" },
       { "name": "Speedtail" }
     ]
