@@ -15,7 +15,11 @@ This tree component it can be infinite, it's also collapsible. It will show an a
 
 `import TreeComponent from "josemichaves@treecomponent"`
 
-In order to use this tree component you need to pass an array of objects with the following format.
+In order to use this tree component you need to call the Tree Component, and pass an array of objects to display.
+
+`<TreeComponent data={data} />`
+
+The data should have this format:
 
 ```
 [
