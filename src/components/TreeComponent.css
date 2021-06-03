@@ -1,5 +1,7 @@
 * {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .item {
@@ -7,11 +9,10 @@
 }
 
 ul {
-  margin-left: -25px;
+  padding: 25px 0px;
   list-style-type: none;
   background-color: lightgray;
   line-height: 3rem;
-  width: 10vw;
   padding-right: 5rem;
 }
 

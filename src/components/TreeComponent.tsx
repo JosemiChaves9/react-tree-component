@@ -14,13 +14,9 @@ export interface DataItem {
   children?: DataItem[];
 }
 
-export const TreeComponent = () => {
+export const TreeComponent = (props: { data: DataItem[] }) => {
   const [activeMenus, setactiveMenus] = useState<DataItem[]>([]);
   const [toggleData, setToggleData] = useState<boolean>(false);
-
-  const handleArrowClick = (data: any) => {
-    console.log(data);
-  };
 
   const renderChildren = (data: DataItem[]) => {
     return data.map((item: DataItem) => {
@@ -30,8 +26,7 @@ export const TreeComponent = () => {
             <FontAwesomeIcon
               icon={faChevronDown}
               className='downArrow'
-              onClick={(e) => {
-                handleArrowClick(e);
+              onClick={() => {
                 setToggleData(!toggleData);
               }}
             />
@@ -41,8 +36,7 @@ export const TreeComponent = () => {
             <FontAwesomeIcon
               icon={faChevronRight}
               className='downArrow'
-              onClick={(e) => {
-                handleArrowClick(e);
+              onClick={() => {
                 setToggleData(!toggleData);
               }}
             />
@@ -63,7 +57,7 @@ export const TreeComponent = () => {
 
   return (
     <>
-      <ul>{renderChildren(data)}</ul>
+      <ul>{renderChildren(props.data)}</ul>
     </>
   );
 };
