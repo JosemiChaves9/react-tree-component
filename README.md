@@ -1,7 +1,7 @@
 # OVERVIEW
 
 This is a simple react tree component, created by Josemi Chaves as a MallorcaBootCamp challenge.
-This tree component it can be infinite, it's also collapsible. It will show an arrow where its children, if there's no children will not show anything
+This tree component it can be infinite, it's also collapsible. It will show an arrow where its children, if there's no children will not show anything.
 
 ---
 
@@ -24,51 +24,60 @@ The data should have this format:
 ```
 [
   {
-    "name": "name of parent",
-    "children": [
-      {"name": "name for children 1-1"},
-      {"name": "name for children 1-2"}
-    ]
+    name: 'Parent 1',
+    children: [{ name: 'Children 1-1' }, { name: 'Children 1-2' }],
   },
   {
-    "name": "name of parent 2",
-    "children": [
-      {"name": "name of subParent 2",
-        "children": [
-          { "name": "name of children 2-1"},
-          { "name": "name of children 2-2"}
-        ]
-      }
-    ]
+    name: 'Parent 2',
+    children: [
+      { name: 'Children 2-1' },
+      { name: 'Children 2-2', children: [{ name: 'Children 2-2-1' }] },
+    ],
   },
-  {"name": "name of parent 3"}
-]
+  {
+    name: 'Parent 3',
+    children: [
+      {
+        name: 'Children 3-1'
+      },
+    ],
+  },
+];
+
 ```
 
 ---
 
-# Alerts
+# RightContent property
 
-You can also pass an alert property to the array of objects that you want to be displayed, whatever text you put inside this alert, will be shown in a tooltip on the right of the specified text.
+You can also pass an right content property to the array of objects that you want to be displayed, you can put JSX inside, and will show this JSX at te right of the entry.
 
 ```
 [
   {
-    "name": "name of parent",
-    "children": [
+    name: 'Parent 3',
+    rightContent: <img src="./image.png" alt="" />
+    children: [
       {
-        "name": "name for children 1-1"
+        name: 'Children 3-1',
+        rightContent: <span> I'm the children of Children 3-1 </span>,
       },
-      {
-        "name": "name for children 1-2",
-        "alert": "This entry doesn't work yet"
-      }
-    ]
-  }
-]
+    ],
+  },
+];
 ```
 
+# Syntax
+
+| Key          | Value                                                                    |
+| ------------ | ------------------------------------------------------------------------ |
+| name         | The name of the parent you want to display.                              |
+| children     | An array of objects that will be displayed as childrens.                 |
+| rightContent | JSX or whatever you need that can be displayed at the right of an entry. |
+
 # Testing
+
+This Tree Component has unit testing built in, this tests ensure that this TreeComponent will work in the way it should.
 
 `npm test`
 

@@ -8,9 +8,8 @@ import { useState } from 'react';
 
 export interface DataItem {
   name: string;
-  rightText?: string;
-  children?: DataItem[];
   rightContent?: any;
+  children?: DataItem[];
 }
 
 export const TreeComponent = (props: { data: DataItem[] }) => {
@@ -29,51 +28,41 @@ export const TreeComponent = (props: { data: DataItem[] }) => {
   };
 
   const renderChildren = (data: DataItem[]) => {
-    return data.map((item: DataItem) => {
-      return (
-        <li
-          unselectable={'off'}
-          key={item.name}
-          className='item'
-          onClick={(e) => {
-            onClickOnArrow(item.name);
-            e.stopPropagation();
-          }}>
-          {item.children && activeMenus.includes(item.name) && (
-            <FontAwesomeIcon
-              icon={faChevronDown}
-              className='downArrow'
-              onClick={() => {
+    return (
+      <ul>
+        {data.map((item: DataItem) => {
+          return (
+            <li
+              unselectable={'off'}
+              key={item.name}
+              className='item'
+              onClick={(e) => {
+                onClickOnArrow(item.name);
                 setToggleData(!toggleData);
-              }}
-            />
-          )}
 
-          {item.children && !activeMenus.includes(item.name) && (
-            <FontAwesomeIcon
-              icon={faChevronRight}
-              className='downArrow'
-              onClick={() => {
-                setToggleData(!toggleData);
-              }}
-            />
-          )}
-          {item.name}
-          {item.rightContent && (
-            <span className='rightContent'>{item.rightContent}</span>
-          )}
+                e.stopPropagation();
+              }}>
+              {item.children && activeMenus.includes(item.name) && (
+                <FontAwesomeIcon icon={faChevronDown} className='downArrow' />
+              )}
 
-          {activeMenus.includes(item.name) &&
-            item.children &&
-            renderChildren(item.children)}
-        </li>
-      );
-    });
+              {item.children && !activeMenus.includes(item.name) && (
+                <FontAwesomeIcon icon={faChevronRight} className='downArrow' />
+              )}
+              {item.name}
+              {item.rightContent && (
+                <span className='rightContent'>{item.rightContent}</span>
+              )}
+
+              {activeMenus.includes(item.name) &&
+                item.children &&
+                renderChildren(item.children)}
+            </li>
+          );
+        })}
+      </ul>
+    );
   };
 
-  return (
-    <>
-      <ul>{renderChildren(props.data)}</ul>
-    </>
-  );
+  return <>{renderChildren(props.data)}</>;
 };
