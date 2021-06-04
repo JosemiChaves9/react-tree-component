@@ -1,4 +1,4 @@
-export const data = [
+export const testData = [
   {
     name: 'Parent 1',
     children: [{ name: 'Children 1-1' }, { name: 'Children 1-2' }],

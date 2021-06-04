@@ -1,16 +1,16 @@
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import { data } from '../../testMockData';
+import { testData } from '../../testMockData';
 import { TreeComponent } from '../TreeComponent';
 import '@testing-library/jest-dom';
 
 it('First render correctly', () => {
-  const tree = renderer.create(<TreeComponent data={data} />).toJSON();
+  const tree = renderer.create(<TreeComponent data={testData} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('In first render only the three first levels should appear.', () => {
-  const { queryByText } = render(<TreeComponent data={data} />);
+  const { queryByText } = render(<TreeComponent data={testData} />);
 
   expect(queryByText('Parent 1')).toBeDefined();
   expect(queryByText('Children 2-2')).toBeNull();
@@ -19,7 +19,7 @@ test('In first render only the three first levels should appear.', () => {
 
 test('When clicked in Parent 1, should return Children 1-1 and Children 2-2, and if clicked again should remove it, and menu arrow should change from right to down.', () => {
   const { getByText, queryByText, container } = render(
-    <TreeComponent data={data} />
+    <TreeComponent data={testData} />
   );
   let arrowMenu = container.getElementsByTagName('svg').item(0);
   expect(arrowMenu).toHaveClass(
@@ -47,7 +47,7 @@ test('When clicked in Parent 1, should return Children 1-1 and Children 2-2, and
 
 test('When clicked the Parent 2, should return Children 2-1 and Children 2-2, finally clicking Children 2-2 will return Children 2-2-1, and menu arrow should change from right to down.', () => {
   const { getByText, queryByText, container } = render(
-    <TreeComponent data={data} />
+    <TreeComponent data={testData} />
   );
 
   let arrowMenu = container.getElementsByTagName('svg').item(1);
@@ -80,7 +80,7 @@ test('When clicked the Parent 2, should return Children 2-1 and Children 2-2, fi
 
 test('In Children 3-1 should display a span that is passed as rightContent, and menu arrow should change from right to down', () => {
   const { getByText, queryByText, container } = render(
-    <TreeComponent data={data} />
+    <TreeComponent data={testData} />
   );
 
   expect(getByText('Parent 3')).toBeDefined();

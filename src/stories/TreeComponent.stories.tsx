@@ -1,10 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 import { TreeComponent } from '../components/TreeComponent';
-import { data } from '../mockData';
+import { carList } from '../carList';
 
 export default {
   title: 'TreeComponent/TreeComponent',
   component: TreeComponent,
 } as Meta;
 
-export const TreeComponentRender: Story = () => <TreeComponent data={data} />;
+export const TreeComponentRender: Story = () => (
+  <TreeComponent data={carList} />
+);
