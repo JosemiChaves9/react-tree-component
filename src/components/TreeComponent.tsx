@@ -25,7 +25,7 @@ export const TreeComponent = (props: { data: DataItem[] }) => {
   const renderChildren = (data: DataItem[]) => {
     return (
       <ul>
-        {data.map((item: DataItem) => {
+        {data.map((item: DataItem, idx: number) => {
           return (
             <li
               unselectable={'off'}
@@ -34,21 +34,18 @@ export const TreeComponent = (props: { data: DataItem[] }) => {
               onClick={(e) => {
                 onClickOnArrow(item.name);
                 setToggleData(!toggleData);
-
                 e.stopPropagation();
               }}>
               {item.children && activeMenus.includes(item.name) && (
                 <FontAwesomeIcon icon={faChevronDown} className='downArrow' />
               )}
-
               {item.children && !activeMenus.includes(item.name) && (
-                <FontAwesomeIcon icon={faChevronRight} className='downArrow' />
+                <FontAwesomeIcon icon={faChevronRight} className='rightArrow' />
               )}
               {item.name}
               {item.rightContent && (
                 <span className='rightContent'>{item.rightContent}</span>
               )}
-
               {activeMenus.includes(item.name) &&
                 item.children &&
                 renderChildren(item.children)}

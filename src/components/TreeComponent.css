@@ -17,12 +17,14 @@ ul {
   padding-right: 5rem;
 }
 
-.downArrow {
+.downArrow,
+.rightArrow {
   margin-right: 5px;
   cursor: pointer;
 }
 
-.downArrow:hover {
+.downArrow:hover,
+.rightArrow:hover {
   zoom: 1.2;
   font-weight: bold;
 }

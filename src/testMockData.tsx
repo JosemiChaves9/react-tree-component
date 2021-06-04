@@ -15,7 +15,7 @@ export const data = [
     children: [
       {
         name: 'Children 3-1',
-        rightContent: "I'm the children of Children 3-1",
+        rightContent: <p>I'm the children of Children 3-1</p>,
       },
     ],
   },

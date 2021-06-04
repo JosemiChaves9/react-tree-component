@@ -9,7 +9,7 @@ exports[`First render correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="svg-inline--fa fa-chevron-right fa-w-10 downArrow"
+      className="svg-inline--fa fa-chevron-right fa-w-10 rightArrow"
       data-icon="chevron-right"
       data-prefix="fas"
       focusable="false"
@@ -33,7 +33,7 @@ exports[`First render correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="svg-inline--fa fa-chevron-right fa-w-10 downArrow"
+      className="svg-inline--fa fa-chevron-right fa-w-10 rightArrow"
       data-icon="chevron-right"
       data-prefix="fas"
       focusable="false"
@@ -57,7 +57,7 @@ exports[`First render correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="svg-inline--fa fa-chevron-right fa-w-10 downArrow"
+      className="svg-inline--fa fa-chevron-right fa-w-10 rightArrow"
       data-icon="chevron-right"
       data-prefix="fas"
       focusable="false"

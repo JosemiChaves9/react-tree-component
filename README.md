@@ -1,7 +1,10 @@
 # OVERVIEW
 
-This is a simple react tree component, created by Josemi Chaves as a MallorcaBootCamp challenge.
+This is a simple react tree component, created by Jose Miguel Chaves as a MallorcaBootCamp challenge.
+
 This tree component it can be infinite, it's also collapsible. It will show an arrow where its children, if there's no children will not show anything.
+
+![React Tree Component](https://media.giphy.com/media/Bl53NIBGBNQUSVJsaO/giphy.gif)
 
 ---
 
@@ -11,7 +14,7 @@ This tree component it can be infinite, it's also collapsible. It will show an a
 
 # USAGE
 
-`import TreeComponent from "josemichaves@treecomponent"`
+`import {TreeComponent} from "josemichaves@treecomponent"`
 
 In order to use this tree component you need to call the Tree Component, and pass an array of objects to display.
 
@@ -46,9 +49,9 @@ The data should have this format:
 
 ---
 
-# RightContent property
+# Right Content property
 
-You can also pass an right content property to the array of objects that you want to be displayed, you can put JSX inside, and will show this JSX at te right of the entry.
+You can also pass an right content property to the array of objects that you want to be displayed, you can put JSX inside, and will show this JSX at the right of the entry.
 
 ```
 [
@@ -67,15 +70,15 @@ You can also pass an right content property to the array of objects that you wan
 
 # Syntax
 
-| Key          | Value                                                                    |
-| ------------ | ------------------------------------------------------------------------ |
-| name         | The name of the parent you want to display.                              |
-| children     | An array of objects that will be displayed as childrens.                 |
-| rightContent | JSX or whatever you need that can be displayed at the right of an entry. |
+| Key          | Value                                                                    | Type             |
+| ------------ | ------------------------------------------------------------------------ | ---------------- |
+| name         | The name of the parent you want to display.                              | string           |
+| children     | An array of objects that will be displayed as children.                  | array of objects |
+| rightContent | JSX or whatever you need that can be displayed at the right of an entry. | JSX or string    |
 
 # Testing
 
-This Tree Component has unit testing built in, this tests ensure that this TreeComponent will work in the way it should.
+This Tree Component has unit testing built in, this tests ensure that this Tree Component will work in the way it should.
 
 `npm test`
 
